@@ -23,15 +23,17 @@ use JaxkDev\DiscordBot\Plugin\Events\MessageSent;
 use JaxkDev\DiscordBot\Plugin\Storage;
 use JaxkDev\DiscordBot\Plugin\Main as DiscordBot;
 use pocketmine\console\ConsoleCommandSender;
+use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
-use pocketmine\Server;;
+use pocketmine\Server;
 
 class RCON extends PluginBase implements Listener
 {
 
     public int $Rolecount = 0;
     public int $Channelcount = 0;
+    public Plugin $discord;
 
 
     public function onEnable () : void
@@ -41,12 +43,10 @@ class RCON extends PluginBase implements Listener
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         
     }
-    public function MsgDiscord (MessageSent $event)
-    {
+    public function MsgDiscord (MessageSent $event) {
 
         // == Member == //
 
-        $memberid = $event->getMessage()->getAuthorId();
         $member = Storage::getMember($event->getMessage()->getAuthorId());
         // ======= //
 
@@ -148,9 +148,8 @@ class RCON extends PluginBase implements Listener
 
                 $code = str_replace("$Command ", "", $event->getMessage()->getContent());
                 Server::getInstance()->dispatchCommand(new ConsoleCommandSender($this->getServer(), $this->getServer()->getLanguage()), "$code");
-                $msg = new Message($cid, null, "Successfully ran the command.");
+                $msg = new Message($cid, null, "Successfully ran the command \n $code \n By: $mention.");
                 $this->getDiscord()->getApi()->sendMessage($msg);
-                return;
 
                 // ======= //
 
