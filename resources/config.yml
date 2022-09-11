@@ -1,0 +1,52 @@
+config:
+  IdOnly: false
+  RoleOnly: false
+  ChannelOnly: false
+  Enabled: false #Change it to true once you're done setting up your config
+  Command: "!rcon" #You can change the command to whatever you like
+
+IdOnly: []
+# - IdOnly should be something like this
+
+# - Example
+#IdOnly:
+#  949243866576465950: 949243866576465950
+#  974323777406120016: 974323777406120016
+
+
+# - Usage
+#IdOnly:
+#  userid: userid
+
+#If you don't want to use it then just keep it empty
+#IdOnly: []
+
+RoleOnly: []
+# - RoleOnly should be something like this
+
+# - Example
+#RoleOnly:
+#  931321481089126401: 931321481089126401
+#  888115745475661914: 888115745475661914
+
+# - Usage
+#RoleOnly:
+#  roleid:roleid
+
+#If you don't want to use it then just keep it empty
+#RoleOnly: []
+
+ChannelOnly: []
+# - ChannelOnly should be something like this
+
+#- Example
+#ChannelOnly:
+#  980964684146557009: 980964684146557009
+#  975753702105292880: 975753702105292880
+
+# - Usage
+#ChannelOnly:
+#  channelid:channelid
+
+#If you don't want to use it then just keep it empty
+#ChannelOnly: []

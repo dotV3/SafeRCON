@@ -1,0 +1,6 @@
+name: SafeRCON
+main: RealYXNG\SafeRCON\RCON
+version: 1.0.0
+api: 4.0.0
+author: RealYXNG
+description: A Secure and Safe way to run commands in your server easily.
