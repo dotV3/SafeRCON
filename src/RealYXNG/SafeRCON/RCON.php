@@ -23,7 +23,6 @@ use JaxkDev\DiscordBot\Plugin\Events\MessageSent;
 use JaxkDev\DiscordBot\Plugin\Storage;
 use JaxkDev\DiscordBot\Plugin\Main as DiscordBot;
 use pocketmine\console\ConsoleCommandSender;
-use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\Server;
@@ -33,7 +32,7 @@ class RCON extends PluginBase implements Listener
 
     public int $Rolecount = 0;
     public int $Channelcount = 0;
-    public Plugin $discord;
+    private $discord;
 
 
     public function onEnable () : void
@@ -43,7 +42,7 @@ class RCON extends PluginBase implements Listener
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         
     }
-    public function MsgDiscord (MessageSent $event) {
+    public function Msg (MessageSent $event) {
 
         // == Member == //
 
