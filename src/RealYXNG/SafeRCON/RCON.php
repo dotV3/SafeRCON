@@ -37,7 +37,8 @@ class RCON extends PluginBase implements Listener
 
     public function onEnable () : void
     {
-
+        
+        $this->saveDefaultConfig()
         $this->discord = $this->getServer()->getPluginManager()->getPlugin("DiscordBot");
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         
